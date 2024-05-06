@@ -137,6 +137,7 @@ function checkGuess () {
             // put in ASL sign
             box.textContent = ""
             var img = document.createElement('img');
+            img.style.maxWidth = '80%';
             img.style.height = "80%";
             img.style.margin = '10px';
             
