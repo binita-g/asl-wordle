@@ -142,7 +142,18 @@ function checkGuess () {
             img.style.margin = '10px';
             
             img.src = aslDictionary[letter];
-            box.appendChild(img)
+            box.appendChild(img);
+
+            // Hover listeners
+            box.addEventListener('mouseover', function() {
+                box.textContent = letter;
+            });
+
+            box.addEventListener('mouseout', function() {
+                box.textContent = "";
+                box.appendChild(img);
+            });
+
         }, delay)
     }
 
