@@ -4,7 +4,8 @@ const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+let rightGuessString = 'learn'
+// let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
 
 const aslDictionary = {
     'a': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_A.svg/1200px-Sign_language_A.svg.png',
@@ -58,11 +59,11 @@ function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor === 'green') {
+            if (oldColor === 'yellowgreen') {
                 return
             } 
 
-            if (oldColor === 'yellow' && color !== 'green') {
+            if (oldColor === 'gold' && color !== 'yellowgreen') {
                 return
             }
 
@@ -109,17 +110,17 @@ function checkGuess () {
         let letterPosition = rightGuess.indexOf(currentGuess[i])
         // is letter in the correct guess
         if (letterPosition === -1) {
-            letterColor = 'grey'
+            letterColor = 'lightgrey'
         } else {
             // now, letter is definitely in word
             // if letter index and right guess index are the same
             // letter is in the right position 
             if (currentGuess[i] === rightGuess[i]) {
                 // shade green 
-                letterColor = 'green'
+                letterColor = 'yellowgreen'
             } else {
-                // shade box yellow
-                letterColor = 'yellow'
+                // shade box gold
+                letterColor = 'gold'
             }
 
             rightGuess[letterPosition] = "#"
@@ -136,8 +137,8 @@ function checkGuess () {
             // put in ASL sign
             box.textContent = ""
             var img = document.createElement('img');
-            img.style.width = "100%";
-            img.style.height = "100%";
+            img.style.height = "80%";
+            img.style.margin = '10px';
             
             img.src = aslDictionary[letter];
             box.appendChild(img)
