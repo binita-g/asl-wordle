@@ -6,6 +6,35 @@ let currentGuess = [];
 let nextLetter = 0;
 let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
 
+const aslDictionary = {
+    'a': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_A.svg/1200px-Sign_language_A.svg.png',
+    'b': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Sign_language_B.svg/452px-Sign_language_B.svg.png',
+    'c': 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Sign_language_C.svg',
+    'd': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Sign_language_D.svg/242px-Sign_language_D.svg.png',
+    'e': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sign_language_E.svg/312px-Sign_language_E.svg.png',
+    'f': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Sign_language_F.svg/1009px-Sign_language_F.svg.png',
+    'g': 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Sign_language_G.svg',
+    'h': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sign_language_H.svg/2560px-Sign_language_H.svg.png',
+    'i': 'https://upload.wikimedia.org/wikipedia/commons/1/10/Sign_language_I.svg',
+    'j': 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Sign_language_J.svg',
+    'k': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sign_language_K.svg/640px-Sign_language_K.svg.png',
+    'l': 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Sign_language_L.svg',
+    'm': 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Sign_language_M.svg',
+    'n': 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Sign_language_N.svg',
+    'o': 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Sign_language_O.svg',
+    'p': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Sign_language_P.svg/1024px-Sign_language_P.svg.png',
+    'q': 'https://upload.wikimedia.org/wikipedia/commons/3/34/Sign_language_Q.svg',
+    'r': 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Sign_language_R.svg',
+    's': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sign_language_S.svg/336px-Sign_language_S.svg.png',
+    't': 'https://upload.wikimedia.org/wikipedia/commons/1/13/Sign_language_T.svg',
+    'u': 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Sign_language_U.svg',
+    'v': 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Sign_language_V.svg',
+    'w': 'https://upload.wikimedia.org/wikipedia/commons/8/83/Sign_language_W.svg',
+    'x': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sign_language_X.svg/1200px-Sign_language_X.svg.png',
+    'y': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Sign_language_Y.svg/919px-Sign_language_Y.svg.png',
+    'z': 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Sign_language_Z.svg'
+
+}
 console.log(rightGuessString)
 
 function initBoard() {
@@ -103,6 +132,15 @@ function checkGuess () {
             //shade box
             box.style.backgroundColor = letterColor
             shadeKeyBoard(letter, letterColor)
+
+            // put in ASL sign
+            box.textContent = ""
+            var img = document.createElement('img');
+            img.style.width = "100%";
+            img.style.height = "100%";
+            
+            img.src = aslDictionary[letter];
+            box.appendChild(img)
         }, delay)
     }
 
