@@ -1,3 +1,13 @@
+export const GUESS_WORDS = [
+  'learn',
+  'teach',
+  'words',
+  'study',
+  'signs',
+  'lingo',
+  'build',
+]
+
 export const WORDS = [
     'which',
     'there',

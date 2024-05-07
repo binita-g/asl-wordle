@@ -1,11 +1,10 @@
-import { WORDS } from "./words.js";
+import { GUESS_WORDS, WORDS } from "./words.js";
 
 const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = 'learn'
-// UNCOMMENT TO REMOVE HARD-CODED ANSWER: let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+let rightGuessString = GUESS_WORDS[Math.floor(Math.random() * GUESS_WORDS.length)]
 
 const aslDictionary = {
     'a': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_A.svg/1200px-Sign_language_A.svg.png',
